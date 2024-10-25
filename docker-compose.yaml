@@ -1,0 +1,16 @@
+services:
+  leema-landing:
+    container_name: leema-site
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "4041:5001"
+    restart: always
+    env_file:
+      - .env
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5001/"]
+      interval: 30s
+      timeout: 10s
+      retries: 5

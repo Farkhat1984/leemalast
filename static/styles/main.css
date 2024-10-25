@@ -1,0 +1,138 @@
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        filter: blur(10px);
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        filter: blur(0);
+        transform: scale(1);
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #000000, #1a1a1a);
+    font-family: Arial, sans-serif;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Hero section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.logo-letter {
+    color: white;
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: bold;
+    opacity: 0;
+    filter: blur(10px);
+    animation: fadeIn 2s ease-in-out forwards;
+    margin: 0 0.2rem;
+}
+
+.logo-letter:nth-child(1) { animation-delay: 0.4s; }
+.logo-letter:nth-child(2) { animation-delay: 0.8s; }
+.logo-letter:nth-child(3) { animation-delay: 1.2s; }
+.logo-letter:nth-child(4) { animation-delay: 1.6s; }
+.logo-letter:nth-child(5) { animation-delay: 2s; }
+
+.slogan {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    margin: 2rem 0;
+    opacity: 0;
+    animation: slideUp 2s ease-in-out forwards;
+    animation-delay: 2.5s;
+}
+
+.description {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: slideUp 2s ease-in-out forwards;
+    animation-delay: 3s;
+    line-height: 1.6;
+}
+
+.cta-container {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    opacity: 0;
+    animation: slideUp 2s ease-in-out forwards;
+    animation-delay: 3.5s;
+}
+
+.cta-button {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 5px;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.cta-primary {
+    background-color: #00f7ff;
+    color: black;
+}
+
+.cta-primary:hover {
+    background-color: #00d8df;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .cta-container {
+        flex-direction: column;
+        padding: 0 20px;
+    }
+
+    .hero-content {
+        width: 100%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .hero-content {
+        max-width: 1000px;
+    }
+}
